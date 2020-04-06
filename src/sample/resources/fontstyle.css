@@ -1,0 +1,14 @@
+  
+@font-face {
+    font-family: 'Cyberpunk';
+    src: url('fonts/Cyberpunk.ttf');
+}
+
+.label {
+    -fx-font-family: 'Cyberpunk';
+    -fx-font-size: 100;
+}
+
+.button .text {
+    -fx-font-family: 'Cyberpunk';
+}
