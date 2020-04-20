@@ -9,7 +9,7 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="854.0" style="-fx-background-color: #81d3f9;" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controller.main_window_controller">
    <children>
-      <ImageView fitHeight="412.0" fitWidth="584.0" layoutX="108.0" layoutY="-87.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="519.0" fitWidth="756.0" layoutX="22.0" layoutY="-93.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../assets/LogiTrans.png" />
          </image>
@@ -19,7 +19,7 @@
             <Font name="Proxy 6" size="32.0" />
          </font></JFXButton>
       <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="300.0" layoutY="194.0" pickOnBounds="true" preserveRatio="true" />
-      <ImageView fitHeight="183.0" fitWidth="257.0" layoutX="301.0" layoutY="159.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="183.0" fitWidth="257.0" layoutX="301.0" layoutY="178.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../assets/pistons.png" />
          </image>

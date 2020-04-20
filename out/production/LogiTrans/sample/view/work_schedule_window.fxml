@@ -1,14 +1,56 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="sample.controller.work_schedule_window_controller"
-            prefHeight="400.0" prefWidth="600.0">
-
+<AnchorPane prefHeight="500.0" prefWidth="800.0" style="-fx-background-color: #81d3f9;" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controller.work_schedule_window_controller">
+   <JFXButton fx:id="generate_button" layoutX="90.0" layoutY="348.0" prefHeight="44.0" prefWidth="637.0" style="-fx-background-color: #4ba3c7;" text="Generuj">
+      <font>
+         <Font name="Bank Gothic Medium BT" size="22.0" />
+      </font>
+   </JFXButton>
+   <ImageView fx:id="back_icon" fitHeight="30.0" fitWidth="32.0" layoutX="14.0" layoutY="14.0">
+      <Image url="@../assets/icons8_go_back_26px.png" />
+   </ImageView>
+   <ImageView fitHeight="94.0" fitWidth="88.0" layoutX="698.0" layoutY="404.0" pickOnBounds="true" preserveRatio="true">
+      <Image url="@../assets/pistons.png" />
+   </ImageView>
+   <ComboBox fx:id="pick_worker" layoutX="61.0" layoutY="183.0" prefHeight="25.0" prefWidth="339.0" style="-fx-background-color: #4ba2c6;" />
+   <ComboBox fx:id="pick_counterparty" layoutX="61.0" layoutY="238.0" prefHeight="25.0" prefWidth="339.0" style="-fx-background-color: #4ba2c6;" />
+   <Label layoutX="61.0" layoutY="69.0" prefWidth="71.0" text="Data">
+      <font>
+         <Font name="Bank Gothic Medium BT" size="22.0" />
+      </font>
+   </Label>
+   <Label layoutX="61.0" layoutY="159.0" prefHeight="24.0" prefWidth="154.0" text="Pracownik">
+      <font>
+         <Font name="Bank Gothic Medium BT" size="22.0" />
+      </font>
+   </Label>
+   <Label layoutX="61.0" layoutY="215.0" prefHeight="24.0" prefWidth="163.0" text="Kontrahent">
+      <font>
+         <Font name="Bank Gothic Medium BT" size="22.0" />
+      </font>
+   </Label>
+   <ComboBox fx:id="pick_route" layoutX="61.0" layoutY="296.0" prefHeight="25.0" prefWidth="339.0" style="-fx-background-color: #4ba2c6;" />
+   <Label layoutX="61.0" layoutY="273.0" prefHeight="24.0" prefWidth="163.0" text="Trasa">
+      <font>
+         <Font name="Bank Gothic Medium BT" size="22.0" />
+      </font>
+   </Label>
+   <ImageView fitHeight="37.0" fitWidth="41.0" layoutX="41.0" layoutY="352.0">
+      <Image url="@../assets/icons8_profiles_50px.png" />
+   </ImageView>
+   <Label layoutX="344.0" layoutY="29.0" prefHeight="35.0" prefWidth="130.0" text="Grafiki">
+      <font>
+         <Font name="Bank Gothic Medium BT" size="32.0" />
+      </font>
+   </Label>
+   <DatePicker fx:id="data_pick_field" layoutX="62.0" layoutY="105.0" prefHeight="25.0" prefWidth="339.0" style="-fx-background-color: #4ba2c6;" />
 </AnchorPane>

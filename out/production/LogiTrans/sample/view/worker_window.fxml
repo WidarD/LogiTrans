@@ -1,14 +1,70 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="sample.controller.worker_window_controller"
-            prefHeight="400.0" prefWidth="600.0">
-
+<AnchorPane prefHeight="500.0" prefWidth="800.0" style="-fx-background-color: #81d4fa;" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controller.worker_window_controller">
+   <children>
+      <ListView layoutX="30.0" layoutY="57.0" prefHeight="419.0" prefWidth="439.0" />
+      <JFXButton layoutX="555.0" layoutY="41.0" prefHeight="44.0" prefWidth="163.0" style="-fx-background-color: #4ba3c7;" text="Dodaj">
+         <font>
+            <Font name="Bank Gothic Medium BT" size="22.0" />
+         </font>
+      </JFXButton>
+      <JFXButton layoutX="555.0" layoutY="104.0" prefHeight="44.0" prefWidth="163.0" style="-fx-background-color: #4ba3c7;" text="Edytuj">
+         <font>
+            <Font name="Bank Gothic Medium BT" size="22.0" />
+         </font>
+      </JFXButton>
+      <JFXButton layoutX="555.0" layoutY="164.0" prefHeight="44.0" prefWidth="163.0" style="-fx-background-color: #4ba3c7;" text="Usun">
+         <font>
+            <Font name="Bank Gothic Medium BT" size="22.0" />
+         </font>
+      </JFXButton>
+      <JFXButton layoutX="555.0" layoutY="228.0" prefHeight="44.0" prefWidth="163.0" style="-fx-background-color: #4ba3c7;" text="Wyswietl">
+         <font>
+            <Font name="Bank Gothic Medium BT" size="22.0" />
+         </font>
+      </JFXButton>
+      <ImageView fitHeight="94.0" fitWidth="88.0" layoutX="674.0" layoutY="378.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../assets/pistons.png" />
+         </image>
+      </ImageView>
+      <ImageView layoutX="515.0" layoutY="234.0">
+         <image>
+            <Image url="@../assets/icons8_eye_32px.png" />
+         </image>
+      </ImageView>
+      <ImageView layoutX="516.0" layoutY="111.0">
+         <image>
+            <Image url="@../assets/icons8_edit_30px.png" />
+         </image>
+      </ImageView>
+      <ImageView layoutX="516.0" layoutY="171.0">
+         <image>
+            <Image url="@../assets/icons8_delete_bin_30px.png" />
+         </image>
+      </ImageView>
+      <ImageView layoutX="516.0" layoutY="48.0">
+         <image>
+            <Image url="@../assets/icons8_add_30px_1.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="back_icon" fitHeight="30.0" fitWidth="32.0" layoutX="21.0" layoutY="17.0">
+         <image>
+            <Image url="@../assets/icons8_go_back_26px.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="147.0" layoutY="14.0" text="Pracownicy">
+         <font>
+            <Font name="Bank Gothic Medium BT" size="32.0" />
+         </font>
+      </Label>
+   </children>
 </AnchorPane>
