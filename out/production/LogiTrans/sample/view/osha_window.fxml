@@ -11,7 +11,7 @@
 
 <AnchorPane prefHeight="500.0" prefWidth="800.0" style="-fx-background-color: #81d3f9;" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controller.osha_window_controller">
    <children>
-      <JFXButton fx:id="generate_button" layoutX="86.0" layoutY="424.0" prefHeight="44.0" prefWidth="637.0" style="-fx-background-color: #4ba3c7;" text="Generuj">
+      <JFXButton layoutX="86.0" layoutY="424.0" prefHeight="44.0" prefWidth="637.0" style="-fx-background-color: #4ba3c7;" text="Generuj">
          <font>
             <Font name="Bank Gothic Medium BT" size="22.0" />
          </font>

@@ -2,16 +2,23 @@
 
 <?import com.jfoenix.controls.JFXButton?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.ListView?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.*?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.text.Font?>
-
+<?import javafx.scene.text.*?>
 <AnchorPane prefHeight="500.0" prefWidth="800.0" style="-fx-background-color: #81d3f9;" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controller.counterparty_window_controller">
    <children>
-      <ListView layoutX="44.0" layoutY="70.0" prefHeight="361.0" prefWidth="356.0" />
-      <JFXButton layoutX="500.0" layoutY="70.0" prefHeight="44.0" prefWidth="163.0" style="-fx-background-color: #4ba3c7;" text="Dodaj">
+      <TableView fx:id="table" layoutX="44.0" layoutY="70.0" prefHeight="361.0" prefWidth="356.0" >
+      <columns>
+         <TableColumn fx:id="name_list" editable="false" prefWidth="100.0" resizable="false" text="Nazwa" />
+         <TableColumn fx:id="address_list" editable="false" prefWidth="100.0" resizable="false" text="Adres" />
+         <TableColumn fx:id="tax_number_list" editable="false" prefWidth="100.0" resizable="false" text="NIP" />
+         <TableColumn fx:id="phone_number_list" editable="false" prefWidth="100.0" resizable="false" text="Nr telefonu" />
+
+      </columns>
+      </TableView>
+      <JFXButton fx:id="add_cp_button" layoutX="500.0" layoutY="70.0" prefHeight="44.0" prefWidth="163.0" style="-fx-background-color: #4ba3c7;" text="Dodaj">
          <font>
             <Font name="Bank Gothic Medium BT" size="22.0" />
          </font>

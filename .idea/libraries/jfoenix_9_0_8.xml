@@ -2,6 +2,7 @@
   <library name="jfoenix-9.0.8">
     <CLASSES>
       <root url="jar://D:/Pobrane - library/jfoenix-9.0.8.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../jfoenix-9.0.8 (1).jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />
