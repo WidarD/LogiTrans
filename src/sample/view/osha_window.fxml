@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="500.0" prefWidth="800.0" style="-fx-background-color: #81d3f9;" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controller.osha_window_controller">
+<AnchorPane id="ComboBox" prefHeight="500.0" prefWidth="800.0" style="-fx-background-color: #81d3f9;" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controller.osha_window_controller">
    <children>
       <JFXButton fx:id="generate_button" layoutX="86.0" layoutY="424.0" prefHeight="44.0" prefWidth="637.0" style="-fx-background-color: #4ba3c7;" text="Generuj">
          <font>
@@ -27,7 +27,8 @@
          </image>
       </ImageView>
       <ComboBox layoutX="53.0" layoutY="250.0" prefHeight="25.0" prefWidth="339.0" style="-fx-background-color: #4ba2c6;" />
-      <ComboBox layoutX="53.0" layoutY="305.0" prefHeight="25.0" prefWidth="339.0" style="-fx-background-color: #4ba2c6;" />
+      <ComboBox fx:id="accepted_osha" layoutX="53.0" layoutY="305.0" prefHeight="25.0" prefWidth="339.0" style="-fx-background-color: #4ba2c6;" />
+
       <Label layoutX="53.0" layoutY="136.0" prefHeight="24.0" prefWidth="417.0" text="Data przeprowadzania szkolenia">
          <font>
             <Font name="Bank Gothic Medium BT" size="22.0" />

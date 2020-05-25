@@ -5,6 +5,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
@@ -22,7 +23,8 @@ public class osha_window_controller extends osha_generator {
     private JFXButton generate_button;
     @FXML
     private DatePicker data_pick_field;
-
+    @FXML
+    private ComboBox<String> accepted_osha;
     @FXML
     void initialize() {
         back_icon.addEventHandler(MouseEvent.MOUSE_CLICKED, mouseEvent -> {
@@ -42,13 +44,16 @@ public class osha_window_controller extends osha_generator {
             primaryStage.setResizable(false);
             primaryStage.show();
         });
+        accepted_osha.getItems().removeAll(accepted_osha.getItems());
+        accepted_osha.getItems().add("Tak");
+        accepted_osha.getItems().add("Nie");
         generate_button.addEventHandler(MouseEvent.MOUSE_CLICKED, mouseEvent -> {
             osha_generator osha_generator_usage = new osha_generator();
             LocalDate date = data_pick_field.getValue();
             String string_date = date.format(DateTimeFormatter.ofPattern("dd/MM/yyyy"));
-
+            String name = "Jan Kowalski";
             try {
-                osha_generator_usage.generate_pdf("Jan Kowalski", string_date);
+                osha_generator_usage.generate_pdf(name, string_date);
             } catch (IOException e) {
                 e.printStackTrace();
             }

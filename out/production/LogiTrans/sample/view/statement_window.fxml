@@ -12,7 +12,7 @@
 
 <AnchorPane prefHeight="500.0" prefWidth="800.0" style="-fx-background-color: #81d3f9;" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controller.statement_window_controller">
    <children>
-      <JFXButton layoutX="53.0" layoutY="423.0" prefHeight="44.0" prefWidth="637.0" style="-fx-background-color: #4ba3c7;" text="Generuj">
+      <JFXButton fx:id="generate_button" layoutX="53.0" layoutY="423.0" prefHeight="44.0" prefWidth="637.0" style="-fx-background-color: #4ba3c7;" text="Generuj">
          <font>
             <Font name="Bank Gothic Medium BT" size="22.0" />
          </font>
@@ -27,8 +27,8 @@
             <Image url="@../assets/pistons.png" />
          </image>
       </ImageView>
-      <ComboBox layoutX="61.0" layoutY="183.0" prefHeight="25.0" prefWidth="339.0" style="-fx-background-color: #4ba2c6;" />
-      <ComboBox layoutX="61.0" layoutY="238.0" prefHeight="25.0" prefWidth="339.0" style="-fx-background-color: #4ba2c6;" />
+      <ComboBox fx:id="worker_pick_field" layoutX="61.0" layoutY="183.0" prefHeight="25.0" prefWidth="339.0" style="-fx-background-color: #4ba2c6;" />
+      <ComboBox fx:id="counterpart_pick_field" layoutX="61.0" layoutY="238.0" prefHeight="25.0" prefWidth="339.0" style="-fx-background-color: #4ba2c6;" />
       <Label layoutX="61.0" layoutY="110.0" prefWidth="71.0" text="Data">
          <font>
             <Font name="Bank Gothic Medium BT" size="22.0" />
@@ -44,7 +44,7 @@
             <Font name="Bank Gothic Medium BT" size="22.0" />
          </font>
       </Label>
-      <ComboBox layoutX="61.0" layoutY="296.0" prefHeight="25.0" prefWidth="339.0" style="-fx-background-color: #4ba2c6;" />
+      <ComboBox fx:id="accepted_pick_field" layoutX="61.0" layoutY="296.0" prefHeight="25.0" prefWidth="339.0" style="-fx-background-color: #4ba2c6;" />
       <Label layoutX="61.0" layoutY="273.0" prefHeight="24.0" prefWidth="293.0" text="Rozliczenie elementów">
          <font>
             <Font name="Bank Gothic Medium BT" size="22.0" />
@@ -65,7 +65,7 @@
             <Font name="Bank Gothic Medium BT" size="22.0" />
          </font>
       </Label>
-      <JFXTextField layoutX="65.0" layoutY="353.0" prefHeight="25.0" prefWidth="339.0" style="-fx-background-color: #4ba2c6;" />
+      <JFXTextField fx:id="number_declaration" layoutX="65.0" layoutY="353.0" prefHeight="25.0" prefWidth="339.0" style="-fx-background-color: #4ba2c6;" />
       <DatePicker fx:id="data_pick_field" layoutX="61.0" layoutY="134.0" prefHeight="25.0" prefWidth="339.0" style="-fx-background-color: #4ba2c6;" />
    </children>
 </AnchorPane>

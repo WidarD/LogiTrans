@@ -15,7 +15,7 @@ public class osha_generator {
         Document document = new Document();
 
         try {
-            PdfWriter writer = PdfWriter.getInstance(document, new FileOutputStream("BHP.pdf"));
+            PdfWriter writer = PdfWriter.getInstance(document, new FileOutputStream(name+"_BHP.pdf"));
             document.open();
             BaseFont arial = BaseFont.createFont("sample/resources/font/Arial.ttf", BaseFont.IDENTITY_H, BaseFont.EMBEDDED);
             Font arial24_bold=new Font(arial,24, Font.BOLD);
