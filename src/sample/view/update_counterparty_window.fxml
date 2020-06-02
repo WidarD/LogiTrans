@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.*?>
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="362.0" style="-fx-background-color: #81d3f9;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controller.update_counterparty_controller">
+   <children>
+      <TextField fx:id="name_update" layoutX="146.0" layoutY="46.0" />
+      <TextField fx:id="address_update" layoutX="146.0" layoutY="104.0" />
+      <TextField fx:id="tax_number_update" layoutX="146.0" layoutY="165.0" />
+      <TextField fx:id="phone_number_update" layoutX="146.0" layoutY="228.0" />
+      <ImageView fx:id="back_icon" fitHeight="30.0" fitWidth="32.0" layoutX="14.0" layoutY="14.0">
+         <image>
+            <Image url="@../assets/icons8_go_back_26px.png" />
+         </image>
+      </ImageView>
+      <JFXButton fx:id="update_counterparty" layoutX="180.0" layoutY="316.0" mnemonicParsing="false" style="-fx-background-color: #4ba3c7;" text="Zmień">
+         <font>
+            <Font name="Bank Gothic Medium BT" size="22.0" />
+         </font>
+      </JFXButton>
+      <Text layoutX="14.0" layoutY="67.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nazwa" />
+      <Text layoutX="14.0" layoutY="125.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Adres" />
+      <Text layoutX="14.0" layoutY="186.0" strokeType="OUTSIDE" strokeWidth="0.0" text="NIP" />
+      <Text layoutX="14.0" layoutY="250.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nr telefonu" />
+   </children>
+</AnchorPane>

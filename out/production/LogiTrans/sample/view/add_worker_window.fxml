@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.*?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="500.0" style="-fx-background-color: #81d3f9;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controller.add_worker_controller">
+   <children>
+      <JFXButton fx:id="add_worker" layoutX="388.0" layoutY="381.0" mnemonicParsing="false" prefHeight="77.0" prefWidth="81.0" style="-fx-background-color: #4ba3c7;" text="Dodaj">
+         <font>
+            <Font name="Bank Gothic Medium BT" size="15.0" />
+         </font>
+      </JFXButton>
+      <ImageView fx:id="back_icon" fitHeight="30.0" fitWidth="32.0" layoutX="14.0" layoutY="14.0">
+         <image>
+            <Image url="@../assets/icons8_go_back_26px.png" />
+         </image>
+      </ImageView>
+      <TextField fx:id="name_input" layoutX="208.0" layoutY="41.0" prefHeight="31.0" prefWidth="154.0" />
+      <TextField fx:id="surname_input" layoutX="208.0" layoutY="81.0" prefHeight="31.0" prefWidth="154.0" />
+      <TextField fx:id="id_input" layoutX="208.0" layoutY="120.0" prefHeight="31.0" prefWidth="154.0" />
+      <TextField fx:id="phone_number_input" layoutX="208.0" layoutY="161.0" prefHeight="31.0" prefWidth="154.0" />
+      <CheckBox fx:id="ohs_yes" layoutX="218.0" layoutY="349.0" mnemonicParsing="false" prefHeight="21.0" prefWidth="65.0" text="Tak" />
+      <DatePicker fx:id="driving_license_date" layoutX="208.0" layoutY="205.0" prefHeight="31.0" prefWidth="154.0" />
+      <DatePicker fx:id="sanitary_book_date" layoutX="208.0" layoutY="251.0" prefHeight="31.0" prefWidth="154.0" />
+      <DatePicker fx:id="driver_card_date" layoutX="208.0" layoutY="297.0" prefHeight="31.0" prefWidth="154.0" />
+      <CheckBox fx:id="ohs_no" layoutX="301.0" layoutY="349.0" mnemonicParsing="false" text="Nie" />
+      <ComboBox fx:id="tractor_pick" layoutX="208.0" layoutY="381.0" prefHeight="31.0" prefWidth="154.0" />
+      <ComboBox fx:id="trailer_pick" layoutX="208.0" layoutY="429.0" prefHeight="31.0" prefWidth="154.0" />
+      <Text layoutX="44.0" layoutY="62.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Imię" wrappingWidth="65.0" />
+      <Text layoutX="41.0" layoutY="102.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nazwisko" wrappingWidth="81.0" />
+      <Text layoutX="44.0" layoutY="141.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Pesel" wrappingWidth="65.0" />
+      <Text layoutX="44.0" layoutY="182.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nr telefonu" />
+      <Text layoutX="43.0" layoutY="226.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ważności prawa jazdy " wrappingWidth="157.822265625" />
+      <Text layoutX="42.0" layoutY="272.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ważność książeczki" wrappingWidth="154.0" />
+      <Text layoutX="43.0" layoutY="318.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ważność karty kierowcy" />
+      <Text layoutX="43.0" layoutY="365.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Kurs BHP" wrappingWidth="157.822265625" />
+      <Text layoutX="45.0" layoutY="402.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ciągnik" wrappingWidth="154.0" />
+      <Text layoutX="45.0" layoutY="445.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Naczepa" wrappingWidth="154.0" />
+   </children>
+</AnchorPane>
