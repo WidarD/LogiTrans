@@ -5,8 +5,6 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.DatePicker;
-import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
@@ -14,10 +12,7 @@ import javafx.stage.Stage;
 import sample.database.route_database_handler;
 
 import java.io.IOException;
-import java.sql.Date;
 import java.sql.SQLException;
-import java.sql.Time;
-import java.time.LocalDate;
 
 
 public class add_route_controller {
@@ -26,21 +21,17 @@ public class add_route_controller {
     @FXML
     private JFXButton add_route;
     @FXML
-    private TableView table;
+    private TextField loading_pick;
     @FXML
-    private DatePicker loading_pick;
+    private TextField unloading_pick;
     @FXML
-    private DatePicker unloading_pick;
-    @FXML
-    private TextField loading_hour;
-    @FXML
-    private TextField unloading_hour;
+    private TextField km_pick;
     @FXML
     void initialize() {
     back_icon.addEventHandler(MouseEvent.MOUSE_CLICKED, mouseEvent -> {
         back_icon.getScene().getWindow().hide();
         FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getResource("/sample/view/counterparty_window.fxml"));
+        loader.setLocation(getClass().getResource("/sample/view/route_window.fxml"));
         try {
             loader.load();
         } catch (IOException e) {
@@ -55,21 +46,24 @@ public class add_route_controller {
         primaryStage.show();
     });
         add_route.addEventHandler(MouseEvent.MOUSE_CLICKED, mouseEvent -> {
-            LocalDate ld= loading_pick.getValue();
-            LocalDate uld = unloading_pick.getValue();
-            String lh = loading_hour.getText();
-            String ulh = unloading_hour.getText();
-            Date loading_date = Date.valueOf(ld);
-            Date unloading_date =Date.valueOf(uld);
-            Time tl = Time.valueOf(lh);
-            Time tul = Time.valueOf(ulh);
+            String ld= loading_pick.getText();;
+            String uld = unloading_pick.getText();
+
+            String km = km_pick.getText();
+            int km_int = Integer.parseInt(km);
             route_database_handler app = new route_database_handler();
             try {
-                app.insert_route(loading_date,tl,unloading_date,tul);
+                app.insert_route(ld,uld,km_int);
             } catch (SQLException e) {
                 e.printStackTrace();
             } catch (ClassNotFoundException e) {
                 e.printStackTrace();
             }
+
+
+
         });
-}}
+}
+
+
+}

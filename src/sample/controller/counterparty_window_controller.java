@@ -101,12 +101,40 @@ public class counterparty_window_controller  {
             } catch (IOException e) {
                 e.printStackTrace();
             }
+
+            String name = null;
+            String address = null;
+            String tax_number = null;
+            String phone_number = null;
+            if (table.getSelectionModel().getSelectedItem() != null) {
+
+                counterparty_model cp = table.getSelectionModel().getSelectedItem();
+                name = cp.name;
+                address = cp.address;
+                tax_number = cp.tax_number;
+                phone_number = cp.phone_number;
+
+            }
+            update_counterparty_controller updateController = loader.getController();
+
+            try {
+                updateController.write_value(name,address,tax_number,phone_number);
+
+            } catch (SQLException e) {
+                e.printStackTrace();
+            } catch (ClassNotFoundException e) {
+                e.printStackTrace();
+            }
+
             Parent root = loader.getRoot();
             Stage primaryStage = new Stage();
             primaryStage.setTitle("LogiTrans");
             primaryStage.setScene(new Scene(root));
             primaryStage.setResizable(false);
             primaryStage.show();
+
+            delateRow();
+
         });
     }
 

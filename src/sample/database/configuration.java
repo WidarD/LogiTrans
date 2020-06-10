@@ -5,6 +5,6 @@ public class configuration {
         public static String PORT = "";
         public static String USER = "root";
         public static String PASSWORD = "root";
-        public static String DBURL = "jdbc:mysql://localhost:3306/logitrans";
+        public static String DBURL = "jdbc:mysql://localhost/logitrans?useSSL=false";
 
 }

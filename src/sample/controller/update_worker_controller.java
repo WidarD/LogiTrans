@@ -11,7 +11,6 @@ import javafx.scene.Scene;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
-import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import sample.database.worker_database_handler;
@@ -23,70 +22,48 @@ import java.time.LocalDate;
 
 import static sample.database.configuration.*;
 
-public class add_worker_controller {
+public class update_worker_controller {
+
     @FXML
-    private JFXButton add_worker;
+    private JFXButton update_worker;
     @FXML
-    private ImageView back_icon;
+    private TextField name_update;
     @FXML
-    private TextField name_input;
+    private TextField surname_update;
     @FXML
-    private TextField surname_input;
+    private TextField id_update;
     @FXML
-    private TextField id_input;
+    private TextField phone_number_update;
     @FXML
-    private TextField phone_number_input;
+    private DatePicker driving_license_update;
     @FXML
-    private DatePicker driving_license_date;
+    private DatePicker sanitary_book_update;
     @FXML
-    private DatePicker sanitary_book_date;
-    @FXML
-    private DatePicker driver_card_date;
+    private DatePicker driver_card_update;
     @FXML
     private CheckBox ohs_yes;
     @FXML
-    private JFXComboBox tractor_pick;
+    private JFXComboBox tractor_update;
     @FXML
-    private JFXComboBox trailer_pick;
+    private JFXComboBox trailer_update;
     @FXML
 
     void initialize() throws SQLException, ClassNotFoundException {
 
-
-
-        Connection conn=get_database_connection();
-        Statement stm;
-        stm = conn.createStatement();
-        String sql = "Select registration_number From tractor_unit";
-        ResultSet rst = stm.executeQuery(sql);
-        ObservableList<String> tractor  = FXCollections.observableArrayList();
-        while(rst.next()){
-            tractor.add(rst.getString("registration_number"));
-        }
-        tractor_pick.setItems(tractor);
-
-        String sql2 = "Select ID_number From worker";
-        ResultSet rst2 = stm.executeQuery(sql2);
-        ObservableList<String> ID  = FXCollections.observableArrayList();
-        while(rst2.next()){
-            ID.add(rst2.getString("ID_number"));
-        }
-
-
-
-        add_worker.addEventHandler(MouseEvent.MOUSE_CLICKED, mouseEvent -> {
-            String name = name_input.getText();
-            String surname = surname_input.getText();
-            String ID_number = id_input.getText();
-            String phone_number = phone_number_input.getText();
-            LocalDate dl= driving_license_date.getValue();
-            LocalDate sb = sanitary_book_date.getValue();
-            LocalDate dc = driver_card_date.getValue();
+        update_worker.addEventHandler(MouseEvent.MOUSE_CLICKED, mouseEvent -> {
+            String name = name_update.getText();
+            String surname = surname_update.getText();
+            String ID_number = id_update.getText();
+            String phone_number = phone_number_update.getText();
+            LocalDate dl= driving_license_update.getValue();
+            LocalDate sb = sanitary_book_update.getValue();
+            LocalDate dc = driver_card_update.getValue();
             Boolean yes = ohs_yes.isSelected();
             Boolean OHS;
             Date driving_license = Date.valueOf(dl);
             Date sanitary_book =Date.valueOf(sb);
             Date driver_card = Date.valueOf(dc);
+
 
 
             if (yes) {
@@ -97,7 +74,7 @@ public class add_worker_controller {
             }
             int f_key_tractor = 0;
             int f_key_trailer = 0;
-            try { 
+            try {
                 f_key_tractor = getIdTractor_unit();
                 f_key_trailer = getIdTrailer_unit();
             } catch (SQLException ex) {
@@ -105,8 +82,24 @@ public class add_worker_controller {
             } catch (ClassNotFoundException ex) {
                 ex.printStackTrace();
             }
-            
-            
+
+            ObservableList<String> ID  = FXCollections.observableArrayList();
+            try {
+                Connection conn2=get_database_connection();
+                Statement stm2;
+                stm2 = conn2.createStatement();
+                String sql2 = "Select ID_number From worker";
+                ResultSet rst2 = stm2.executeQuery(sql2);
+
+                while(rst2.next()){
+                    ID.add(rst2.getString("ID_number"));
+                }
+
+            } catch (SQLException | ClassNotFoundException ex) {
+                ex.printStackTrace();
+            }
+
+
             if(ID.contains(ID_number))
             {
                 String message = "Błąd dodawania\n"
@@ -114,7 +107,7 @@ public class add_worker_controller {
                 JOptionPane.showMessageDialog(new JFrame(), message, "Błąd!",
                         JOptionPane.ERROR_MESSAGE);
             }else
-                {
+            {
                 worker_database_handler app = new worker_database_handler();
                 try {
                     app.insert_worker(name, surname, ID_number, phone_number, driving_license, sanitary_book, driver_card, OHS, f_key_tractor, f_key_trailer);
@@ -122,17 +115,17 @@ public class add_worker_controller {
                     ee.printStackTrace();
                 }
             }
-        });
-        back_icon.addEventHandler(MouseEvent.MOUSE_CLICKED, mouseEvent -> {
-            back_icon.getScene().getWindow().hide();
+
+            update_worker.getScene().getWindow().hide();
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(getClass().getResource("/sample/view/worker_window.fxml"));
             try {
                 loader.load();
-            } catch (IOException ex) {
-                ex.printStackTrace();
+            } catch (IOException e) {
+                e.printStackTrace();
             }
             Parent root = loader.getRoot();
+
             Stage primaryStage = new Stage();
             primaryStage.setTitle("LogiTrans");
             primaryStage.setScene(new Scene(root));
@@ -140,8 +133,12 @@ public class add_worker_controller {
             primaryStage.show();
         });
 
+    }
 
-
+    public void write_value(String value1, String value2, String value3, String value4, LocalDate value5, LocalDate value6, LocalDate value7, boolean value8, String value9, String value10  ) throws SQLException, ClassNotFoundException {
+        Connection conn=get_database_connection();
+        Statement stm;
+        stm = conn.createStatement();
 
         String st = "Select registration_number From semi_trailer";
         ResultSet rst_st = stm.executeQuery(st);
@@ -149,7 +146,30 @@ public class add_worker_controller {
         while(rst_st.next()){
             trailer.add(rst_st.getString("registration_number"));
         }
-        trailer_pick.setItems(trailer);
+        trailer_update.setItems(trailer);
+
+        String sql = "Select registration_number From tractor_unit";
+        ResultSet rst = stm.executeQuery(sql);
+        ObservableList<String> tractor  = FXCollections.observableArrayList();
+        while(rst.next()){
+            tractor.add(rst.getString("registration_number"));
+        }
+        tractor_update.setItems(tractor);
+
+        tractor_update.setEditable(true);
+        trailer_update.setEditable(true);
+
+
+        name_update.setText(value1);
+        surname_update.setText(value2);
+        id_update.setText(value3);
+        phone_number_update.setText(value4);
+        driving_license_update.setValue(value5);
+        sanitary_book_update.setValue(value6);
+        driver_card_update.setValue(value7);
+        ohs_yes.setSelected(value8);
+        tractor_update.setValue(value9);
+        trailer_update.setValue(value10);
     }
     public static Connection get_database_connection() throws SQLException, ClassNotFoundException
     {
@@ -158,8 +178,8 @@ public class add_worker_controller {
 
     public int getIdTractor_unit() throws SQLException, ClassNotFoundException {
 
-        
-        Object tractor_sel = tractor_pick.getSelectionModel().getSelectedItem();
+
+        Object tractor_sel = tractor_update.getSelectionModel().getSelectedItem();
         String r_tractor = tractor_sel.toString();
 
         Connection conn2=get_database_connection();
@@ -181,7 +201,7 @@ public class add_worker_controller {
     public int getIdTrailer_unit() throws SQLException, ClassNotFoundException {
 
 
-        Object trailer_sel = trailer_pick.getSelectionModel().getSelectedItem();
+        Object trailer_sel = trailer_update.getSelectionModel().getSelectedItem();
         String r_trailer = trailer_sel.toString();
 
         Connection conn2=get_database_connection();
@@ -199,7 +219,5 @@ public class add_worker_controller {
         }return id;
 
     }
-
-
 
 }

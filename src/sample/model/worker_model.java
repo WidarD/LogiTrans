@@ -13,10 +13,10 @@ public class worker_model {
     public Date sanitary_book;
     public Date driver_card;
     public Boolean OHS;
-    public int id_semi_trailer;
-    public int id_tractor_unit;
+    public String registration_number_ST;
+    public String registration_number_TU;
 
-    public worker_model(int idWorker, String name, String surname, String ID_number, String phone_number, Date driving_license, Date sanitary_book, Date driver_card, Boolean OHS){
+    public worker_model(int idWorker, String name, String surname, String ID_number, String phone_number, Date driving_license, Date sanitary_book, Date driver_card, Boolean OHS, String registration_number_ST, String registration_number_TU){
         this.idWorker = idWorker;
         this.name = name;
         this.surname = surname;
@@ -26,8 +26,9 @@ public class worker_model {
         this.sanitary_book = sanitary_book;
         this.driver_card = driver_card;
         this.OHS = OHS;
-        //this.id_semi_trailer = id_semi_trailer;
-       // this.id_tractor_unit = id_tractor_unit;
+        this.registration_number_ST = registration_number_ST;
+        this.registration_number_TU = registration_number_TU;
+
     }
 
     public int getIdWorker() {
@@ -53,7 +54,6 @@ public class worker_model {
     public void setSurname(String surname) {
         this.surname = surname;
     }
-
 
     public String getID_number() {
         return ID_number;
@@ -103,19 +103,21 @@ public class worker_model {
         this.OHS = OHS;
     }
 
-    public int getId_semi_trailer() {
-        return id_semi_trailer;
+    public String getRegistration_number_ST() {
+        return registration_number_ST;
     }
 
-    public void setId_semi_trailer(int id_semi_trailer) {
-        this.id_semi_trailer = id_semi_trailer;
+    public void setRegistration_number_ST(String registration_number_ST) {
+        this.registration_number_ST = registration_number_ST;
     }
 
-    public int getId_tractor_unit() {
-        return id_tractor_unit;
+    public String getRegistration_number_TU() {
+        return registration_number_TU;
     }
 
-    public void setId_tractor_unit(int id_tractor_unit) {
-        this.id_tractor_unit = id_tractor_unit;
+    public void setRegistration_number_TU(String registration_number_TU) {
+        this.registration_number_TU = registration_number_TU;
     }
 }
+
+

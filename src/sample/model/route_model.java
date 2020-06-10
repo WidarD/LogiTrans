@@ -1,23 +1,20 @@
 package sample.model;
 
-import java.sql.Date;
-import java.sql.Time;
-
 public class route_model {
     public int idRoute;
-    public Date loading_date;
-    public Time loading_hour;
-    public Date unloading_date;
-    public Time unloading_hour;
+    public String city_start;
+    public String city_stop;
+    public int km;
 
 
 
-    public route_model(int idRoute, Date loading_date, Time loading_hour, Date unloading_date, Time unloading_hour) {
+
+    public route_model(int idRoute, String city_start, String city_stop, int km) {
         this.idRoute = idRoute;
-        this.loading_date = loading_date;
-        this.loading_hour = loading_hour;
-        this.unloading_date = unloading_date;
-        this.unloading_hour = unloading_hour;
+        this.city_start = city_start;
+        this.city_stop = city_stop;
+        this.km = km;
+
     }
 
     public int getIdRoute() {
@@ -28,36 +25,27 @@ public class route_model {
         this.idRoute = idRoute;
     }
 
-    public Date getLoading_date() {
-        return loading_date;
+    public String getCity_start() {
+        return city_start;
     }
 
-    public void setLoading_date(Date loading_date) {
-        this.loading_date = loading_date;
+    public void setCity_start(String city_start) {
+        this.city_start = city_start;
     }
 
-    public Time getLoading_hour() {
-        return loading_hour;
+    public String getCity_stop() {
+        return city_stop;
     }
 
-    public void setLoading_hour(Time loading_hour) {
-        this.loading_hour = loading_hour;
+    public void setCity_stop(String city_stop) {
+        this.city_stop = city_stop;
     }
 
-    public Date getUnloading_date() {
-        return unloading_date;
+    public int getKm() {
+        return km;
     }
 
-    public void setUnloading_date(Date unloading_date) {
-        this.unloading_date = unloading_date;
+    public void setKm(int km) {
+        this.km = km;
     }
-
-    public Time getUnloading_hour() {
-        return unloading_hour;
-    }
-
-    public void setUnloading_hour(Time unloading_hour) {
-        this.unloading_hour = unloading_hour;
-    }
-
 }

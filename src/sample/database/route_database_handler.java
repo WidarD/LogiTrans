@@ -11,12 +11,12 @@ public class route_database_handler extends configuration{
         Connection conn=get_database_connection();
         Statement stm;
         stm = conn.createStatement();
-        String sql = "Select idRoute,loading_date,loading_hour,unloading_date,unloading_hour,id_warehouse,id_worker From route";
+        String sql = "Select idRoute, city_start, city_stop, km From route";
         ResultSet rst;
         rst = stm.executeQuery(sql);
         ObservableList<route_model> list  = FXCollections.observableArrayList();
         while (rst.next()) {
-            list.add(new route_model(rst.getInt("idRoute"), rst.getDate("loading_date"), rst.getTime("loading_hour"), rst.getDate("unloading_date"), rst.getTime("unloading_hour")));
+            list.add(new route_model(rst.getInt("idRoute"), rst.getString("city_start"), rst.getString("city_stop"), rst.getInt("km")));
         }return list;
     }
 
@@ -32,41 +32,39 @@ public class route_database_handler extends configuration{
     }
 
 
-    public void insert_route (Date loading_date, Time loading_hour, Date unloading_date, Time unloading_hour) throws SQLException, ClassNotFoundException {
+    public void insert_route (String city_start, String city_stop, int km) throws SQLException, ClassNotFoundException {
         Connection conn=get_database_connection();
         Statement stm;
         stm = conn.createStatement();
-        String sql = "INSERT INTO route(loading_date,loading_hour,unloading_date,unloading_hour) VALUES(?,?,?,?)";
+        String sql = "INSERT INTO route(city_start,city_stop,km) VALUES(?,?,?)";
         PreparedStatement pstmt = conn.prepareStatement(sql);
-        pstmt.setDate(1, loading_date);
-        pstmt.setTime(2, loading_hour);
-        pstmt.setDate(3, unloading_date);
-        pstmt.setTime(4, unloading_hour);
+        pstmt.setString(1, city_start);
+        pstmt.setString(2, city_stop);
+        pstmt.setInt(3, km);
         pstmt.executeUpdate();
     }
 
-    public void delete_route(int id) throws SQLException, ClassNotFoundException
+    public void delete_route(int idRoute) throws SQLException, ClassNotFoundException
     {
         Connection conn=get_database_connection();
         Statement stm;
         stm = conn.createStatement();
         String sql = "delete from route where idRoute=?";
         PreparedStatement pstmt = conn.prepareStatement(sql);
-        pstmt.setInt(1, id);
+        pstmt.setInt(1, idRoute);
         pstmt.executeUpdate();
     }
-    public void change_route (Date loading_date, Time loading_hour, Date unloading_date, Time unloading_hour, int id) throws SQLException, ClassNotFoundException
+    public void change_route (String city_start, String city_stop, int km, int id) throws SQLException, ClassNotFoundException
     {
         Connection conn=get_database_connection();
         Statement stm;
         stm = conn.createStatement();
-        String sql = "UPDATE route SET loading_date = ?, loading_hour = ?, unloading_date = ?, unloading_hour = ? WHERE idRoute = ?";
+        String sql = "UPDATE route SET city_start = ?, city_stop = ?, km = ? WHERE idRoute = ?";
         PreparedStatement pstmt = conn.prepareStatement(sql);
-        pstmt.setDate(1, loading_date);
-        pstmt.setTime(2, loading_hour);
-        pstmt.setDate(3, unloading_date);
-        pstmt.setTime(4, unloading_hour);
-        pstmt.setInt(5, id);
+        pstmt.setString(1, city_start);
+        pstmt.setString(2, city_stop);
+        pstmt.setInt(3, km);
+        pstmt.setInt(4, id);
         pstmt.executeUpdate();
     }
 }

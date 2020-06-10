@@ -83,7 +83,7 @@ public class statement_window_controller extends statement_generator {
             String route = "WU-WU-A";
             String number = number_declaration.getText();
             try {
-                statement_generator_usage.generate_pdf(string_date, name, counterparty, route, number);
+                statement_generator_usage.generate_pdf(string_date, name, counterparty, number);
             } catch (IOException e) {
                 e.printStackTrace();
             } catch (DocumentException e) {

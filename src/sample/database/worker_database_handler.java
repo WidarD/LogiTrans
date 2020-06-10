@@ -58,8 +58,7 @@ public class worker_database_handler extends configuration
             rowData[8] = getAllWorkers().get(i).getSanitary_book();
             rowData[9] = getAllWorkers().get(i).getDriver_card();
             rowData[10] = getAllWorkers().get(i).getOHS();
-            rowData[11] = getAllWorkers().get(i).getId_semi_trailer();
-            rowData[12] = getAllWorkers().get(i).getId_tractor_unit();
+
             model.addRow(rowData);
         }
         table.setModel(model);
@@ -80,22 +79,22 @@ public class worker_database_handler extends configuration
         Connection conn=get_database_connection();
         Statement stm;
         stm = conn.createStatement();
-        String sql = "Select * From worker";
+        String sql = "SELECT worker.*, semi_trailer.*, tractor_unit.* FROM worker LEFT JOIN semi_trailer ON (worker.id_semi_trailer=semi_trailer.idSemi_trailer) LEFT JOIN tractor_unit ON (worker.id_tractor_unit=tractor_unit.idTractor_unit";
         ResultSet rst;
         rst = stm.executeQuery(sql);
         ArrayList<worker_model> workerList = new ArrayList<>();
         while (rst.next()) {
-            worker_model worker = new worker_model(rst.getInt("idWorker"), rst.getString("name"), rst.getString("surname"), rst.getString("ID_number"), rst.getString("phone_number"), rst.getDate("driving_license"), rst.getDate("sanitary_book"), rst.getDate("driver_card"), rst.getBoolean("OHS"));
+            worker_model worker = new worker_model(rst.getInt("idWorker"), rst.getString("name"), rst.getString("surname"), rst.getString("ID_number"), rst.getString("phone_number"), rst.getDate("driving_license"), rst.getDate("sanitary_book"), rst.getDate("driver_card"), rst.getBoolean("OHS"), rst.getString("semi_trailer.registration_number"),rst.getString("tractor_unit.registration_number"));
             workerList.add(worker);
         }
         return workerList;
     }
-    public void insert_worker(String name, String surname, String ID_number, String phone_number, Date driving_license, Date sanitary_book, Date driver_card, Boolean OHS/*, Integer id_semi_trailer, Integer id_tractor_unit*/) throws SQLException
+    public void insert_worker(String name, String surname, String ID_number, String phone_number, Date driving_license, Date sanitary_book, Date driver_card, Boolean OHS, int id_semi_trailer,int id_tractor_unit ) throws SQLException
         {
             Connection conn=get_database_connection();
         Statement stm;
         stm = conn.createStatement();
-        String sql = "INSERT INTO worker(name,surname,ID_number,phone_number,driving_license, sanitary_book, driver_card, OHS) VALUES(?,?,?,?,?,?,?,?)";
+        String sql = "INSERT INTO worker(name,surname,ID_number,phone_number,driving_license, sanitary_book, driver_card, OHS, id_semi_trailer, id_tractor_unit) VALUES(?,?,?,?,?,?,?,?,?,?)";
         PreparedStatement pstmt = conn.prepareStatement(sql);
         pstmt.setString(1, name);
         pstmt.setString(2, surname);
@@ -105,8 +104,8 @@ public class worker_database_handler extends configuration
         pstmt.setDate(6, sanitary_book);
         pstmt.setDate(7, driver_card);
         pstmt.setBoolean(8, OHS);
-       // pstmt.setInt(9, id_semi_trailer);
-        //pstmt.setInt(10, id_tractor_unit);
+        pstmt.setInt(9, id_semi_trailer);
+        pstmt.setInt(10, id_tractor_unit);
         pstmt.executeUpdate();
     }
 //    public int get_all_workers() throws SQLException, ClassNotFoundException
@@ -130,7 +129,7 @@ public class worker_database_handler extends configuration
         pstmt.setInt(1, id);
         pstmt.executeUpdate();
     }
-    public void change_worker (String name, String surname, String ID_number, String phone_number, String driving_license, String sanitary_book, String driver_card, Boolean OHS, Integer id_semi_trailer, Integer id_tractor_unit, Integer id) throws SQLException, ClassNotFoundException
+    public void change_worker (String name, String surname, String ID_number, String phone_number, String driving_license, String sanitary_book, String driver_card, Boolean OHS, String id_trailer, String id_tractor, Integer id) throws SQLException, ClassNotFoundException
     {
         Connection conn=get_database_connection();
         Statement stm;
@@ -145,8 +144,8 @@ public class worker_database_handler extends configuration
         pstmt.setString(6, sanitary_book);
         pstmt.setString(7, driver_card);
         pstmt.setBoolean(8, OHS);
-        pstmt.setInt(9, id_semi_trailer);
-        pstmt.setInt(10, id_tractor_unit);
+        pstmt.setString(9, id_trailer);
+        pstmt.setString(10, id_tractor);
         pstmt.setInt(11, id);
         pstmt.executeUpdate();
     }

@@ -10,7 +10,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 
 public class statement_generator {
-    public static void generate_pdf(String date, String name, String counterparty, String route, String number) throws IOException, DocumentException {
+    public static void generate_pdf(String date, String name, String counterparty, String number) throws IOException, DocumentException {
         Document document = new Document();
         BaseFont arial = BaseFont.createFont("sample/resources/font/Arial.ttf", BaseFont.IDENTITY_H, BaseFont.EMBEDDED);
         Font arial24_bold = new Font(arial, 24, Font.BOLD);
@@ -29,8 +29,6 @@ public class statement_generator {
             table1.addCell(date);
             table1.addCell("Kontrahent:");
             table1.addCell(counterparty);
-            table1.addCell("Trasa:");
-            table1.addCell(route);
             table1.addCell("Liczba sztuk:");
             table1.addCell(number);
             document.add(table1);

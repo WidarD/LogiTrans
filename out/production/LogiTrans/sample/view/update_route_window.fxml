@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="362.0" style="-fx-background-color: #81d3f9;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controller.update_route_controller">
+   <children>
+      <TextField fx:id="update_c1" layoutX="147.0" layoutY="95.0" />
+      <TextField fx:id="update_c2" layoutX="147.0" layoutY="174.0" />
+      <TextField fx:id="update_km" layoutX="147.0" layoutY="257.0" />
+      <JFXButton fx:id="update_route" layoutX="181.0" layoutY="334.0" mnemonicParsing="false" style="-fx-background-color: #4ba3c7;" text="Zmień">
+         <font>
+            <Font name="Bank Gothic Medium BT" size="22.0" />
+         </font>
+      </JFXButton>
+
+      <Text layoutX="29.0" layoutY="116.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Zmień miasto" />
+      <Text layoutX="29.0" layoutY="195.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Zmień miasto" />
+      <Text layoutX="29.0" layoutY="279.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Zmień km" />
+   </children>
+</AnchorPane>

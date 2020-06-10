@@ -11,8 +11,8 @@
    <children>
       <TableView fx:id="table" layoutX="44.0" layoutY="70.0" prefHeight="361.0" prefWidth="356.0" >
       <columns>
-         <TableColumn fx:id="name_list" editable="false" prefWidth="100.0" resizable="false" text="Nazwa" />
-         <TableColumn fx:id="address_list" editable="false" prefWidth="100.0" resizable="false" text="Adres" />
+         <TableColumn fx:id="name_list" editable="false" prefWidth="200.0" resizable="false" text="Nazwa" />
+         <TableColumn fx:id="address_list" editable="false" prefWidth="300.0" resizable="false" text="Adres" />
          <TableColumn fx:id="tax_number_list" editable="false" prefWidth="100.0" resizable="false" text="NIP" />
          <TableColumn fx:id="phone_number_list" editable="false" prefWidth="100.0" resizable="false" text="Nr telefonu" />
       </columns>
@@ -32,11 +32,6 @@
             <Font name="Bank Gothic Medium BT" size="22.0" />
          </font>
       </JFXButton>
-      <JFXButton layoutX="500.0" layoutY="238.0" prefHeight="44.0" prefWidth="163.0" style="-fx-background-color: #4ba3c7;" text="Wyswietl">
-         <font>
-            <Font name="Bank Gothic Medium BT" size="22.0" />
-         </font>
-      </JFXButton>
       <ImageView layoutX="451.0" layoutY="77.0">
          <image>
             <Image url="@../assets/icons8_add_30px_1.png" />
@@ -50,11 +45,6 @@
       <ImageView layoutX="451.0" layoutY="190.0">
          <image>
             <Image url="@../assets/icons8_edit_30px.png" />
-         </image>
-      </ImageView>
-      <ImageView layoutX="450.0" layoutY="244.0">
-         <image>
-            <Image url="@../assets/icons8_eye_32px.png" />
          </image>
       </ImageView>
       <ImageView fx:id="back_icon" fitHeight="30.0" fitWidth="32.0" layoutX="14.0" layoutY="14.0">

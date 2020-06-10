@@ -13,11 +13,6 @@
       <TextField fx:id="address_update" layoutX="146.0" layoutY="104.0" />
       <TextField fx:id="tax_number_update" layoutX="146.0" layoutY="165.0" />
       <TextField fx:id="phone_number_update" layoutX="146.0" layoutY="228.0" />
-      <ImageView fx:id="back_icon" fitHeight="30.0" fitWidth="32.0" layoutX="14.0" layoutY="14.0">
-         <image>
-            <Image url="@../assets/icons8_go_back_26px.png" />
-         </image>
-      </ImageView>
       <JFXButton fx:id="update_counterparty" layoutX="180.0" layoutY="316.0" mnemonicParsing="false" style="-fx-background-color: #4ba3c7;" text="Zmień">
          <font>
             <Font name="Bank Gothic Medium BT" size="22.0" />

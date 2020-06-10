@@ -9,10 +9,9 @@
    <children>
       <TableView fx:id="table" layoutX="44.0" layoutY="70.0" prefHeight="361.0" prefWidth="356.0" >
          <columns>
-            <TableColumn fx:id="loading_date" editable="false" prefWidth="100.0" resizable="false" text="Nazwa" />
-            <TableColumn fx:id="loading_hour" editable="false" prefWidth="100.0" resizable="false" text="Adres" />
-            <TableColumn fx:id="unloading_date" editable="false" prefWidth="100.0" resizable="false" text="NIP" />
-            <TableColumn fx:id="unloading_hour" editable="false" prefWidth="100.0" resizable="false" text="Nr telefonu" />
+            <TableColumn fx:id="city_start_list" editable="false" prefWidth="121.0" resizable="false" text="Miasto początkowe" />
+            <TableColumn fx:id="city_stop_list" editable="false" prefWidth="120.0" resizable="false" text="Miasto końcowe" />
+            <TableColumn fx:id="km_list" editable="false" prefWidth="120.0" resizable="false" text="Km" />
          </columns>
       </TableView>
 
@@ -21,17 +20,12 @@
             <Font name="Bank Gothic Medium BT" size="22.0" />
          </font>
       </JFXButton>
-      <JFXButton layoutX="500.0" layoutY="127.0" prefHeight="44.0" prefWidth="163.0" style="-fx-background-color: #4ba3c7;" text="Usun">
+      <JFXButton fx:id="delate_r_button" layoutX="500.0" layoutY="127.0" prefHeight="44.0" prefWidth="163.0" style="-fx-background-color: #4ba3c7;" text="Usun">
          <font>
             <Font name="Bank Gothic Medium BT" size="22.0" />
          </font>
       </JFXButton>
-      <JFXButton layoutX="500.0" layoutY="183.0" prefHeight="44.0" prefWidth="163.0" style="-fx-background-color: #4ba3c7;" text="Edytuj">
-         <font>
-            <Font name="Bank Gothic Medium BT" size="22.0" />
-         </font>
-      </JFXButton>
-      <JFXButton layoutX="500.0" layoutY="238.0" prefHeight="44.0" prefWidth="163.0" style="-fx-background-color: #4ba3c7;" text="Wyswietl">
+      <JFXButton fx:id="update_r_button" layoutX="500.0" layoutY="183.0" prefHeight="44.0" prefWidth="163.0" style="-fx-background-color: #4ba3c7;" text="Edytuj">
          <font>
             <Font name="Bank Gothic Medium BT" size="22.0" />
          </font>
@@ -49,11 +43,6 @@
       <ImageView layoutX="451.0" layoutY="190.0">
          <image>
             <Image url="@../assets/icons8_edit_30px.png" />
-         </image>
-      </ImageView>
-      <ImageView layoutX="450.0" layoutY="244.0">
-         <image>
-            <Image url="@../assets/icons8_eye_32px.png" />
          </image>
       </ImageView>
       <ImageView fx:id="back_icon" fitHeight="30.0" fitWidth="32.0" layoutX="14.0" layoutY="14.0">

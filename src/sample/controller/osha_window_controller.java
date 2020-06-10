@@ -63,9 +63,9 @@ public class osha_window_controller extends osha_generator {
             osha_generator osha_generator_usage = new osha_generator();
             LocalDate date = data_pick_field.getValue();
             String string_date = date.format(DateTimeFormatter.ofPattern("dd/MM/yyyy"));
-            String name = "Jan Kowalski";
+            //String name = worker_choice.getValue();
             try {
-                osha_generator_usage.generate_pdf(name, string_date);
+                osha_generator_usage.generate_pdf(worker_choice.getValue(), string_date);
             } catch (IOException e) {
                 e.printStackTrace();
             }

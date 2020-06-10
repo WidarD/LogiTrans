@@ -38,7 +38,7 @@ public class work_schedule_window_controller extends schedule_generator {
     private ComboBox<String> pick_counterparty;
 
     @FXML
-    private ComboBox<?> pick_route;
+    private ComboBox<String> pick_route;
 
     @FXML
     private DatePicker data_pick_field;
@@ -47,10 +47,13 @@ public class work_schedule_window_controller extends schedule_generator {
     void initialize() throws SQLException, ClassNotFoundException {
         ObservableList<String> list_of_workers = getTable_Workers();
         ObservableList<String> list_of_counterparties = getTable_Counterparties();
+        ObservableList<String> list_of_routes = getTable_Routes();
         pick_worker.getItems().removeAll(pick_worker.getItems());
         pick_worker.setItems(list_of_workers);
         pick_counterparty.getItems().removeAll(pick_counterparty.getItems());
         pick_counterparty.setItems(list_of_counterparties);
+        pick_route.getItems().removeAll(pick_route.getItems());
+        pick_route.setItems(list_of_routes);
         back_icon.addEventHandler(MouseEvent.MOUSE_CLICKED, mouseEvent -> {
             back_icon.getScene().getWindow().hide();
             FXMLLoader loader = new FXMLLoader();
@@ -74,7 +77,7 @@ public class work_schedule_window_controller extends schedule_generator {
             String string_date = data.format(DateTimeFormatter.ofPattern("dd/MM/yyyy"));
             String name = pick_worker.getValue();
             String counterparty = pick_counterparty.getValue();
-            String route = "WU-WU-A";
+            String route = pick_route.getValue();
             try {
                 schedule_generator_usage.generate_pdf(string_date, name, counterparty, route);
             } catch (IOException e) {
@@ -113,6 +116,21 @@ public class work_schedule_window_controller extends schedule_generator {
         ObservableList<String> list = FXCollections.observableArrayList();
         while (rst.next()) {
             list.add(rst.getString("name") );
+
+        }
+
+        return list;
+    }
+    private ObservableList<String> getTable_Routes() throws SQLException, ClassNotFoundException {
+        Connection conn = get_database_connection();
+        Statement stm;
+        stm = conn.createStatement();
+        String sql = "Select * From route";
+        ResultSet rst;
+        rst = stm.executeQuery(sql);
+        ObservableList<String> list = FXCollections.observableArrayList();
+        while (rst.next()) {
+            list.add(rst.getString("city_start") + " - " + rst.getString("city_stop") + " " + rst.getString("km") + "km" );
 
         }
 
